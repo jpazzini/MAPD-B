@@ -17,6 +17,7 @@ ARG scala_version=2.13
 
 RUN apt-get update -y && \
     apt-get install -y curl && \
+    apt-get install -y tmux && \
     curl https://archive.apache.org/dist/kafka/${kafka_version}/kafka_${scala_version}-${kafka_version}.tgz -o kafka.tgz && \
     tar -xf kafka.tgz && \
     mv kafka_${scala_version}-${kafka_version} /usr/bin/ && \

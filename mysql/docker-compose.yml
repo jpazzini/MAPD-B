@@ -1,0 +1,19 @@
+version: '3.6'
+services:
+  db:
+    image: mysql:8.0.28
+    environment:
+      MYSQL_USER: "my_user"
+      MYSQL_PASSWORD: "my_pwd"
+      MYSQL_ROOT_PASSWORD: "root_pwd"
+    volumes:
+      - $PWD:/opt/workspace
+    command: --secure_file_priv="/opt/workspace"
+  jupyter:
+    depends_on:
+      - db
+    image: mapd_notebook
+    ports: 
+      - 8888:8888
+    volumes:
+      - $PWD:/opt/workspace

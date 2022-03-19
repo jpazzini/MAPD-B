@@ -2,13 +2,17 @@
 
 Lectures for Management and Analysis of Physics Datasets course MSc in Physic of Data at University of Padua 2021-2022.
 
-## Docker
-
-It is possible to run all the exercises using docker. 
-
-In this way, the only thing you need to install is docker itself (instructions for Mac, Windows and linux can be found [here](https://docs.docker.com/get-docker/)).
+## Pre-requisites
 
 Clone this repo if has not already been done.
+
+Download the `IMDb_pruned` file at the link you can find on the course moodle (~350 MB) and place it under the `MAPD-B/mysql/dbs/` path.
+
+## Docker
+
+All exercises are run using Docker.
+
+In this way, the only thing you need to install is docker itself (instructions for Mac, Windows and linux can be found [here](https://docs.docker.com/get-docker/)).
 
 For this exercise, we will use docker-compose to simulate a system with 2 nodes: 1 MySQL server, and 1 server running a Jupyter-notebook service.
 

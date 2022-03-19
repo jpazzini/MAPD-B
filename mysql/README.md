@@ -2,12 +2,6 @@
 
 Lectures for Management and Analysis of Physics Datasets course MSc in Physic of Data at University of Padua 2021-2022.
 
-## Pre-requisites
-
-Clone this repo if has not already been done.
-
-Download the `IMDb_pruned` file at the link you can find on the course moodle (~350 MB) and place it under the `MAPD-B/mysql/dbs/` path.
-
 ## Docker
 
 All exercises are run using Docker.
@@ -20,7 +14,10 @@ This is an "overkill" setup that can however be useful to understand and test a 
 
 Check the `docker-compose.yml` file to see how the system is set up.
 
-### Docker compose
+- The MySQL container will be downloaded from one official MySQL image on dockerhub
+- The Jupyter-notebook container image have to be built from the `mapd_notebook.dockerfile` Docker-file contained in `MAPD-B/mysql/docker/`
+
+## Docker compose
 
 All services can be spawned with 
 
@@ -41,3 +38,10 @@ The two-nodes cluster can be shut down by typing
 ```
 docker-compose down
 ```
+
+## Pre-requisites
+
+1. Clone this repo (or check for updates) 
+2. Build the `mapd_notebook` Docker image using `mapd_notebook` as the image tag
+3. Test that the `docker-compose` can be started (`up`) and stopped (`down`) succesfully 
+4. Download the `IMDb_pruned` file at the link you can find on the course moodle (~350 MB) and place it under the `MAPD-B/mysql/dbs/` path

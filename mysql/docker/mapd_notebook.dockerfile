@@ -3,6 +3,8 @@ FROM continuumio/miniconda3:4.10.3p1
 ARG shared_workspace=/opt/workspace
 ENV SHARED_WORKSPACE=${shared_workspace}
 
+RUN conda install psutil
+
 RUN apt-get update -y && \
     pip3 install notebook matplotlib ipython-sql pymysql mysql-connector-python pandas pymongo
 

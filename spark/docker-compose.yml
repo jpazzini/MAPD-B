@@ -1,0 +1,29 @@
+version: "3.6"
+services:
+  spark-master:
+    image: jpazzini/mapd-b:spark-master
+    container_name: spark-master
+    ports:
+      - 8080:8080
+      - 7077:7077
+    volumes:
+      - $PWD:/opt/workspace
+  spark-worker:
+    image: jpazzini/mapd-b:spark-worker
+    depends_on:
+      - spark-master
+    volumes:
+      - $PWD:/opt/workspace
+    environment:
+      - SPARK_WORKER_CORES=1
+      - SPARK_WORKER_MEMORY=512m
+  jupyterlab:
+    image: jpazzini/mapd-b:spark-jupyter
+    container_name: jupyterlab
+    depends_on:
+      - spark-master
+    ports:
+      - 4040:4040
+      - 8888:8888
+    volumes:
+      - $PWD:/opt/workspace

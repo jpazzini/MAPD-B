@@ -4,7 +4,7 @@ Lectures for Management and Analysis of Physics Datasets course MSc in Physic of
 
 ## Docker
 
-All exercises are run using Docker.
+All exercises can be run using Docker.
 
 In this way, the only thing you need to install is docker itself (instructions for Mac, Windows and linux can be found [here](https://docs.docker.com/get-docker/)).
 
@@ -75,6 +75,18 @@ The cluster can be shut down by typing
 ```
 docker-compose down
 ```
+
+## Local cluster
+
+As an alternative, you can install and use Spark directly from your local machine, or from a virtual machine you may have created.
+
+The Spark binaries can be downloaded from the [link](https://spark.apache.org/downloads.html).
+Please read carefully the instructions provided in the dedicated [page](https://spark.apache.org/docs/latest/).
+To run locally, Spark also requires to have Java (version 8 or version 11) installed in your system.
+
+Please note that in this case, the teacher and the teaching assistants will not provide any support for your private installations.
+
+It is therefore strongly suggested to use either the Docker Cluster or Single Docker Container deployment of Spark to run the hands-on sessions.
 
 ## Lecture 1
 

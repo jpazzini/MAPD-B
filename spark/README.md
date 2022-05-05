@@ -27,7 +27,7 @@ docker run --rm -it \
         -p 4040:4040 \
         -p 8080:8080 \
         -v $PWD:/opt/workspace \
-        miglio/mapd:spark-jupyter
+        jpazzini/mapd-b:spark-jupyter
 ```
 
 Once it has been created, you can connect to Jupyter from your local browser by typing `localhost:8888`. 

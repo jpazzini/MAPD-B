@@ -3,7 +3,7 @@ version: "3.6"
 services:
 
   dask-scheduler:
-    image: dask-scheduler
+    image: jpazzini/mapd-b:dask-scheduler
     container_name: dask-scheduler
     ports:
       - 8787:8787
@@ -14,7 +14,7 @@ services:
       - DASK_SCHEDULER_HOST=dask-scheduler
 
   dask-worker:
-    image: dask-worker
+    image: jpazzini/mapd-b:dask-worker
     depends_on:
       - dask-scheduler
     volumes:
@@ -26,7 +26,7 @@ services:
       - DASK_SCHEDULER_HOST=dask-scheduler
 
   jupyterlab:
-    image: dask-client-jupyter
+    image: jpazzini/mapd-b:dask-client-jupyter
     container_name: jupyterlab
     depends_on:
       - dask-scheduler

@@ -1,0 +1,36 @@
+version: "3.6"
+
+services:
+
+  dask-scheduler:
+    image: jpazzini/mapd-b:dask-scheduler
+    container_name: dask-scheduler
+    ports:
+      - 8787:8787
+      - 8786:8786
+    volumes:
+      - $PWD:/opt/workspace
+    environment:
+      - DASK_SCHEDULER_HOST=dask-scheduler
+
+  dask-worker:
+    image: jpazzini/mapd-b:dask-worker
+    depends_on:
+      - dask-scheduler
+    volumes:
+      - $PWD:/opt/workspace
+    environment:
+      - DASK_WORKER_CORES=1
+      - DASK_WORKER_MEMORY=512MB
+      - DASK_WORKER_THREADS=1
+      - DASK_SCHEDULER_HOST=dask-scheduler
+
+  jupyterlab:
+    image: jpazzini/mapd-b:dask-client-jupyter
+    container_name: jupyterlab
+    depends_on:
+      - dask-scheduler
+    ports:
+      - 8888:8888
+    volumes:
+      - $PWD:/opt/workspace

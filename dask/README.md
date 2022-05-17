@@ -73,7 +73,7 @@ docker-compose down
 
 As an alternative, you can install and use Dask directly from your local machine, or from a virtual machine you may have created.
 
-Dask can be installed with `pip3 install dask` or `conda install dask`.
+Dask can be installed with `pip3 install dask[complete]` or `conda install dask[complete]`.
 
 Please note that in this case, the teacher and the teaching assistants will not provide any support for your private installations and the possible missing modules and dependencies, that you will have to install on your own.
 

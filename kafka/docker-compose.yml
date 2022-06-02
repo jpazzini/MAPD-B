@@ -1,7 +1,7 @@
 version: "3.6"
 services:
   spark-master:
-    image: miglio/mapd:spark-master
+    image: jpazzini/mapd-b:spark-master
     container_name: spark-master
     ports:
       - 8080:8080
@@ -9,7 +9,7 @@ services:
     volumes:
       - $PWD:/opt/workspace
   spark-worker:
-    image: miglio/mapd:spark-worker
+    image: jpazzini/mapd-b:spark-worker
     depends_on:
       - spark-master
     volumes:
@@ -29,7 +29,7 @@ services:
     ports:
       - 9092:9092
   jupyterlab:
-    image: miglio/mapd:spark-jupyter
+    image: jpazzini/mapd-b:spark-jupyter
     container_name: jupyterlab
     depends_on:
       - spark-master

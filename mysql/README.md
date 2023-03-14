@@ -30,7 +30,7 @@ All services can be spawned with
 docker compose up
 ```
 
-Using the port forwarding from the docker-compose yml, we expose the Jupyter-notebook service on the port 8888 (you can change the port if you prefer).
+Using the port forwarding from the docker-compose yml, we expose the Jupyter-notebook service on the port 1234 (you can change the port if you prefer).
 
 By pointing a browser to `localhost:1234` you will see a Jupyter service running.
 

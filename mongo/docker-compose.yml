@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  db:
+    image: mongo:6.0.4
+    environment:
+      MONGO_INITDB_DATABASE: admin
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root_pwd
+    volumes:
+      - $PWD:/mapd-workspace
+      - $PWD/docker-entrypoint-initdb.d/mongo-init.js:/mapd-workspace/docker-entrypoint-initdb.d/mongo-init.js:ro
+  jupyter:
+    depends_on:
+      - db
+    image: mapd_notebook
+    ports: 
+      - 1234:8888
+    volumes:
+      - $PWD:/mapd-workspace

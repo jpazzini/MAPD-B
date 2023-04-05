@@ -1,15 +1,19 @@
-# A minimal race condition example
+# A minimal race condition example with a lock
 import threading
 
 # increment function using a common counter
 def increment(max_val=100_000):
     global counter
+    global lock
     for i in range(max_val):
+        lock.acquire()
         counter += 1
-    
+        lock.release()
+
 if __name__ == '__main__':
     # common counter
     counter = 0
+    lock = threading.Lock()
 
     # create and start 10 concurrent threads
     threads = []

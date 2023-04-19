@@ -52,7 +52,7 @@ docker compose down
 
 ## Lecture 1
 
-* Creation of a Spark standalone cluster
+* Connection to a Spark cluster
 * Basic commands (`parallelize`, `map`, `reduce`, ...)
 * Spark application WebUI
 * Word count, computing $\pi$ and distributed gradient descent

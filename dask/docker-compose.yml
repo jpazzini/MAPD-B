@@ -1,8 +1,7 @@
 version: "3.9"
 services:
   dask-scheduler:
-    # image: jpazzini/mapd-b:dask-scheduler
-    image: dask-scheduler
+    image: jpazzini/mapd-b:dask-scheduler
     container_name: dask-scheduler
     ports:
       - 8787:8787
@@ -12,8 +11,7 @@ services:
     environment:
       - DASK_SCHEDULER_HOST=dask-scheduler
   dask-worker:
-    # image: jpazzini/mapd-b:dask-worker
-    image: dask-worker
+    image: jpazzini/mapd-b:dask-worker
     depends_on:
       - dask-scheduler
     volumes:
@@ -24,8 +22,7 @@ services:
       - DASK_WORKER_THREADS=1
       - DASK_SCHEDULER_HOST=dask-scheduler
   jupyter-notebook:
-    # image: jpazzini/mapd-b:dask-jupyter
-    image: dask-jupyter
+    image: jpazzini/mapd-b:dask-jupyter
     container_name: jupyter-notebook
     depends_on:
       - dask-scheduler

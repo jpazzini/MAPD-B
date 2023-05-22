@@ -11,7 +11,7 @@ In this way, the only thing you need to install is docker itself (instructions f
 For this exercise, we will use docker-compose to simulate a cluster with a number of nodes: 
 - 1 container running the Dask `scheduler` (the head-node of the cluster)
 - 1 _or more_ containers running Dask `workers` (the processing-nodes of the cluster)
-- 1 container running the Dask client, the Python interpreter and a Jupyter-notebook sever
+- 1 container running the Dask client, the Python interpreter and a Jupyter-notebook server
 
 ![Dask cluster with docker](notebooks/imgs/docker/cluster.png)
 

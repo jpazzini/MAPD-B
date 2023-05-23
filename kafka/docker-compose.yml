@@ -1,0 +1,40 @@
+version: "3.9"
+services:
+  spark-master:
+    image: jpazzini/mapd-b:spark-master
+    container_name: spark-master
+    ports:
+      - 8080:8080
+      - 7077:7077
+    volumes:
+      - $PWD:/mapd-workspace
+  spark-worker:
+    image: jpazzini/mapd-b:spark-worker
+    depends_on:
+      - spark-master
+    volumes:
+      - $PWD:/mapd-workspace
+    environment:
+      - SPARK_WORKER_CORES=1
+      - SPARK_WORKER_MEMORY=512m
+  zookeeper:
+    image: jpazzini/mapd-b:zookeeper
+    container_name: zookeeper
+    ports:
+      - 2181:2181
+  kafka-broker:
+    image: jpazzini/mapd-b:kafka-broker
+    depends_on:
+      - zookeeper
+    ports:
+      - 9092:9092
+  jupyter-notebook:
+    image: jpazzini/mapd-b:spark-jupyter
+    container_name: jupyter-notebook
+    depends_on:
+      - spark-master
+    ports:
+      - 4040:4040
+      - 1234:8888
+    volumes:
+      - $PWD:/mapd-workspace

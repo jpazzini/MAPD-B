@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+
+  db:
+    image: mysql:8.0.32
+    environment:
+      MYSQL_USER: "my_user"
+      MYSQL_PASSWORD: "my_pwd"
+      MYSQL_ROOT_PASSWORD: "root_pwd"
+    volumes:
+      - $PWD:/mapd-workspace
+    command: --secure_file_priv="/mapd-workspace"
+
+  jupyter:
+    depends_on:
+      - db
+    image: mapd_notebook
+    ports: 
+      - 1234:8888
+    volumes:
+      - $PWD:/mapd-workspace

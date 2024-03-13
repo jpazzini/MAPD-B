@@ -16,7 +16,8 @@ services:
     depends_on:
       - db
     image: mapd_notebook
-    ports: 
+    platform: linux/amd64
+    ports:
       - 1234:8888
     volumes:
       - $PWD:/mapd-workspace

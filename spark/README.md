@@ -61,7 +61,6 @@ docker compose down
 
 1. Clone this repo (or fetch the latest updates) 
 2. Test that the `docker compose` can be started (`up`) and stopped (`down`) succesfully 
-3. Verify your cluster by running the example notebook on `notebooks/docker/Docker-Cluster.ipynb`.
 
 ## Lecture 1
 
